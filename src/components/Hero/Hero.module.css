@@ -1,0 +1,12 @@
+.hero {
+  height: 90dvh;
+  background-color: var(--color-primary);
+  position: relative;
+  padding: var(--space-l);
+  color: var(--color-reverse);
+}
+
+.hero_title {
+  font-size: 25vw;
+  line-height: 0.8;
+}
