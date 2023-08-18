@@ -1,19 +1,136 @@
-* {
+* {   
   box-sizing: border-box;
+
+  --font-size-range-hh: calc( var(--font-size-desktop-hh) - var(--font-size-mobile-hh) ); /* The range between mobile and desktop font sizes */
+  --fluid-font-size-hh: calc( var(--font-size-range-hh) * var(--viewport-percent-hh) + (var(--font-size-mobile-hh)) * 1px ); /* A normalization equation that takes the range in font size and maps it between mobile width and desktop width */
 }
 
+@font-face {
+  font-family: "Oi";
+  font-weight: 700;
+  src:
+    local("Oi"),
+    url("assets/fonts/Oi-Regular.ttf") format("truetype")
+}
+
+@font-face {
+  font-family: "Editorial New";
+  font-weight: normal;
+  src:
+    local("Editorial New"),
+    url("assets/fonts/EditorialNew-Regular.otf") format("opentype")
+}
+
+@font-face {
+  font-family: "Fraktion Mono";
+  font-weight: normal;
+  src:
+    local("Fraktion Mono"),
+    url("assets/fonts/PPFraktionMono-Regular.ttf") format("truetype")
+}
+
+
 :root {
-  --color-primary: #786c50;
+
+  /* Fluid Scaling */
+  --viewport-desktop-hh: 1440; /* The width of the desktop designs in Figma */
+  --viewport-mobile-hh: 400; /* The width of the mobile designs in Figma */
+  --viewport-range-hh: calc( var(--viewport-desktop-hh) - var(--viewport-mobile-hh) ); /*The range between mobile and desktop viewport sizes */
+  --viewport-percent-hh: calc( (100vw - (var(--viewport-mobile-hh) * 1px)) / var(--viewport-range-hh) ); /* How wide the current viewport is, relative to the mobile and desktop viewport sizes */
+
+  /* Color */
+  --color-primary: #FFC32B;
+  --color-secondary: #8B5099;
+  --color-tertiary: #987657;
   --color-reverse: #ffffff;
   --color-ink: #000000;
 
-  --space-xxs: 5px;
+  --space-2xs: 5px;
   --space-xs: 10px;
-  --space-s: 15px;
-  --space-m: 20px;
-  --space-l: 30px;
+  --space-sm: 15px;
+  --space-md: 20px;
+  --space-lg: 30px;
   --space-xl: 40px;
-  --space-xxl: 60px;
+  --space-2xl: 60px;
+
+  --font-family-display: 'Oi', cursive;
+  --font-family-heading: 'Editorial New', Georgia, 'Times New Roman', Times, serif;
+  --font-family-body: 'Fraktion Mono', monospace;
+
+    /* Typography */
+  
+    --h1-font-size-desktop-hh: 86; /* Font size in pixels from desktop designs */
+    --h1-font-size-mobile-hh: 46; /* Font size in pixels from mobile designs */
+    --h1-line-height-hh: 1.03; /* Line height uses percentages from Figma divided by 100 */
+    --h1-letter-spacing-hh: -0.02em; /* This is calculated by dividing desktop letter-spacing (px) by desktop font-size */
+    --h1-font-weight-hh: 300; /* This value is arbitrary but must match one of the weights defined in your font import */ 
+    --h1-font-family-hh: var(--font-family-heading-hh);
+    --h1-text-transform-hh: none;
+  
+    --h2-font-size-desktop-hh: 72;
+    --h2-font-size-mobile-hh: 42;
+    --h2-line-height-hh: 0.92;
+    --h2-letter-spacing-hh: 0rem;
+    --h2-text-transform-hh: uppercase;
+  
+    --h3-font-size-desktop-hh: 30;
+    --h3-font-size-mobile-hh: 20;
+    --h3-line-height-hh: 1.1;
+    --h3-letter-spacing-hh: 0rem;
+    --h3-text-transform-hh: uppercase;
+  
+    --h4-font-size-desktop-hh: 34;
+    --h4-font-size-mobile-hh: 26;
+    --h4-line-height-hh: 1.2;
+    --h4-letter-spacing-hh: 0;
+    --h4-font-weight-hh: 400;
+    --h4-font-family-hh: var(--font-family-heading-hh);
+    --h4-text-transform-hh: none;
+    
+    --h5-font-size-desktop-hh: 26;
+    --h5-font-size-mobile-hh: 20;
+    --h5-line-height-hh: 1.33;
+    --h5-letter-spacing-hh: -0.0625rem;
+    --h5-font-weight-hh: 400;
+    --h5-font-family-hh: var(--font-family-heading-hh);
+    --h5-text-transform-hh: none;
+    
+    --h6-font-size-desktop-hh: 20;
+    --h6-font-size-mobile-hh: 16;
+    --h6-font-size-hh: 1.3;
+    --h6-line-height-hh: 1.33;
+    --h6-letter-spacing-hh: 0;
+    --h6-font-weight-hh: 400;
+    --h6-font-family-hh: var(--font-family-heading-hh);
+    --h6-text-transform-hh: none;
+    
+    --body-font-size-desktop-hh: 16;
+    --body-font-size-mobile-hh: 14;
+    --body-line-height-hh: 1.4;
+    --body-letter-spacing-hh: 0;
+    --body-font-weight-hh: 400;
+    --body-font-family-hh: var(--font-family-body-hh);
+    --body-text-transform-hh: none;
+    --body-margin-bottom: 1em;
+    
+    --caption-font-size-desktop-hh: 12;
+    --caption-font-size-mobile-hh: 10;
+    --caption-line-height-hh: 1.16;
+    --caption-letter-spacing-hh: 0;
+    --caption-font-weight-hh: 400;
+    --caption-font-family-hh: var(--font-family-body-hh);
+    --caption-text-transform-hh: none;
+    --caption-margin-bottom: 1em;
+    
+    --utility-font-size-desktop-hh: 12;
+    --utility-font-size-mobile-hh: 12;
+    --utility-line-height-hh: .85;
+    --utility-letter-spacing-hh: 0.15rem;
+    --utility-font-weight-hh: 700;
+    --utility-font-family-hh: var(--font-family-utility-hh);
+    --utility-text-transform-hh: uppercase;
+  
+  
 }
 
 html {
@@ -26,8 +143,107 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-family-body);
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  --font-size-fluid-hh: max( var(--fluid-font-size-hh), calc(var(--font-size-mobile-hh) * 1px) );
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-weight: normal;
+}
+
+p {
+    --font-size-fluid-hh: max( var(--fluid-font-size-hh), calc(var(--font-size-mobile-hh) * 1px) );
+    margin-top: 0;
 }
 
 h1 {
-  margin: 0;
+    --font-size-desktop-hh: var(--h1-font-size-desktop-hh);
+    --font-size-mobile-hh: var(--h1-font-size-mobile-hh);
+    font: var(--h1-font-weight-hh) var(--font-size-fluid-hh)/var(--h1-line-height-hh) var(--h1-font-family-hh);
+    letter-spacing: var(--h1-letter-spacing-hh);
+    text-transform: var(--h1-text-transform-hh);
+    margin-bottom: 0;
+}
+
+h2 {
+    --font-size-desktop-hh: var(--h2-font-size-desktop-hh);
+    --font-size-mobile-hh: var(--h2-font-size-mobile-hh);
+    font-size: var(--font-size-fluid-hh);
+    line-height: var(--h3-line-height-hh);
+    letter-spacing: var(--h2-letter-spacing-hh);
+    text-transform: var(--h2-text-transform-hh);
+    margin-bottom: 0;
+}
+
+h3 {
+    --font-size-desktop-hh: var(--h3-font-size-desktop-hh);
+    --font-size-mobile-hh: var(--h3-font-size-mobile-hh);
+    font-size: var(--font-size-fluid-hh);
+    line-height: var(--h3-line-height-hh);
+    letter-spacing: var(--h3-letter-spacing-hh);
+    text-transform: var(--h3-text-transform-hh);
+    margin-bottom: 0;
+}
+
+h4 {
+    --font-size-desktop-hh: var(--h4-font-size-desktop-hh);
+    --font-size-mobile-hh: var(--h4-font-size-mobile-hh);
+    font: var(--h4-font-weight-hh) var(--font-size-fluid-hh)/var(--h4-line-height-hh) var(--h4-font-family-hh);
+    letter-spacing: var(--h4-letter-spacing-hh);
+    text-transform: var(--h4-text-transform-hh);
+    margin-bottom: 0;
+}
+
+h5 {
+    --font-size-desktop-hh: var(--h5-font-size-desktop-hh);
+    --font-size-mobile-hh: var(--h5-font-size-mobile-hh);
+    font: var(--h5-font-weight-hh) var(--font-size-fluid-hh)/var(--h5-line-height-hh) var(--h5-font-family-hh);
+    letter-spacing: var(--h5-letter-spacing-hh);
+    text-transform: var(--h5-text-transform-hh);
+    margin-bottom: 0;
+}
+
+h6 {
+    --font-size-desktop-hh: var(--h6-font-size-desktop-hh);
+    --font-size-mobile-hh: var(--h6-font-size-mobile-hh);
+    font: var(--h6-font-weight-hh) var(--font-size-fluid-hh)/var(--h6-line-height-hh) var(--h6-font-family-hh);
+    letter-spacing: var(--h6-letter-spacing-hh);
+    text-transform: var(--h6-text-transform-hh);
+    margin-bottom: 0;
+}
+
+p {
+    --font-size-desktop-hh: var(--body-font-size-desktop-hh);
+    --font-size-mobile-hh: var(--body-font-size-mobile-hh);
+    font: var(--body-font-weight-hh) var(--font-size-fluid-hh)/var(--body-line-height-hh) var(--body-font-family-hh);
+    letter-spacing: var(--body-letter-spacing-hh);
+    text-transform: var(--body-text-transform-hh);
+    margin-bottom: var(--body-margin-bottom-hh);
+}
+
+.caption {
+    --font-size-desktop-hh: var(--caption-font-size-desktop-hh);
+    --font-size-mobile-hh: var(--caption-font-size-mobile-hh);
+    font: var(--caption-font-weight-hh) var(--font-size-fluid-hh)/var(--caption-line-height-hh) var(--caption-font-family-hh);
+    letter-spacing: var(--caption-letter-spacing-hh);
+    text-transform: var(--caption-text-transform-hh);
+    margin-bottom: var(--caption-margin-bottom-hh);
+}
+
+.utility {
+    --font-size-desktop-hh: var(--utility-font-size-desktop-hh);
+    --font-size-mobile-hh: var(--utility-font-size-mobile-hh);
+    font: var(--utility-font-weight-hh) var(--font-size-fluid-hh)/var(--utility-line-height-hh) var(--utility-font-family-hh);
+    letter-spacing: var(--utility-letter-spacing-hh);
+    text-transform: var(--utility-text-transform-hh);
+    margin-bottom: var(--utility-margin-bottom-hh);
 }

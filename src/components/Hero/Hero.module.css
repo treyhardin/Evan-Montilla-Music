@@ -1,12 +1,20 @@
 .hero {
-  height: 90dvh;
-  background-color: var(--color-primary);
+  min-height: 95dvh;
+  background-color: var(--color-tertiary);
   position: relative;
-  padding: var(--space-l);
+  padding: var(--space-lg);
   color: var(--color-reverse);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 
-.hero_title {
-  font-size: 25vw;
-  line-height: 0.8;
+.hero_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.hero_text > svg {
+  width: 100%;
 }

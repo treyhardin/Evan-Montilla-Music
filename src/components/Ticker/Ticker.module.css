@@ -1,0 +1,29 @@
+.ticker {
+  border-top: 1px solid var(--color-primary);
+  padding-block: var(--space-sm);
+  overflow: hidden;
+}
+
+@keyframes tickerText {
+  0% {
+    translate: 0% 0%;
+  }
+  100% {
+    translate: -100% 0%;
+  }
+}
+
+.tickerTrack {
+  animation: tickerText 30s linear infinite;
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-sm);
+}
+
+.tickerItem {
+  word-break: keep-all;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+}
+
