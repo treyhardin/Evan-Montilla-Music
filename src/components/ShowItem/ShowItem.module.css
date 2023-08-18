@@ -1,0 +1,41 @@
+.showItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-block: var(--space-md);
+  border-bottom: 1px solid var(--color-primary);
+  color: var(--color-reverse);
+  gap: var(--space-lg);
+}
+
+.showImage {
+  flex: 0 0 20%;
+  overflow: hidden;
+}
+
+.showImage img {
+  width: 100%;
+}
+
+.showText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.showInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.showInfoItem {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-xs);
+  align-items: center;
+}
+
+.showInfoItem svg {
+  width: var(--icon-md);
+}

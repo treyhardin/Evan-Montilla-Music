@@ -9,7 +9,9 @@ export default function Tracks({image}) {
         <img src="https://cdn.pink.gr/repository/_2017/baddie2.jpg" />
       </div>
       <div class={styles.tracks_content}>
-        <h2>Latest Tracks</h2>
+        <div class={styles.sectionTitle}>
+          <h2>Latest Tracks</h2>
+        </div>
         <div class={styles.tracks_wrapper}>
           <TrackItem 
             image="https://cdn.pink.gr/repository/_2017/baddie2.jpg"

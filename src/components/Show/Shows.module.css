@@ -1,0 +1,13 @@
+.shows {
+  background-color: var(--color-secondary);
+  padding: var(--space-lg);
+  color: var(--color-primary);
+}
+
+.sectionTitle {
+  background-color: var(--color-secondary);
+  position: sticky;
+  top: 0;
+  padding-block: var(--space-md);
+  border-bottom: 1px solid var(--color-primary);
+}
