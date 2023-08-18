@@ -78,7 +78,7 @@
   --h1-text-transform-hh: none;
 
   --h2-font-size-desktop-hh: 72;
-  --h2-font-size-mobile-hh: 42;
+  --h2-font-size-mobile-hh: 32;
   --h2-line-height-hh: 0.9;
   --h2-letter-spacing-hh: 0rem;
   --h2-text-transform-hh: none;
@@ -90,7 +90,7 @@
   --h3-text-transform-hh: uppercase;
 
   --h4-font-size-desktop-hh: 24;
-  --h4-font-size-mobile-hh: 26;
+  --h4-font-size-mobile-hh: 20;
   --h4-line-height-hh: 1.2;
   --h4-letter-spacing-hh: 0;
   --h4-font-weight-hh: normal;
