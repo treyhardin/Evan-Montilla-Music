@@ -1,0 +1,37 @@
+.track_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  width: 100%;
+  color: var(--color-ink);
+  gap: var(--space-sm);
+  padding-block: var(--space-sm);
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.track_image {
+  flex: 0 0 20%;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.track_image img {
+  width: 100%;
+}
+
+.textWrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.iconWrapper {
+  flex: 0 0 var(--icon-lg);
+  color: var(--color-secondary);
+}
+
+.iconWrapper > svg {
+  width: 100%;
+}

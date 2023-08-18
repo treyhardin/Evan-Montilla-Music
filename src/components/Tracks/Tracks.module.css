@@ -1,0 +1,34 @@
+.tracks {
+  width: 100%;
+  background-color: var(--color-reverse);
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  min-height: 90dvh;
+  color: var(--color-primary);
+  max-height: 95dvh;
+}
+
+.tracks_image {
+  flex: 0 0 50%;
+  overflow: hidden;
+}
+
+.tracks_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tracks_content {
+  flex: 0 0 50%;
+  padding: var(--space-lg);
+  overflow-y: auto;
+}
+
+.tracks_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
