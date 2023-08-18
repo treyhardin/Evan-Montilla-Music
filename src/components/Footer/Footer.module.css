@@ -1,0 +1,12 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: var(--space-lg);
+  background-color: var(--color-tertiary);
+  color: var(--color-reverse);
+}
+
+.footerTitle {
+  color: var(--color-primary);
+}

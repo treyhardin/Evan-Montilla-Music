@@ -4,6 +4,7 @@ import Tracks from './components/Tracks/Tracks';
 import Shows from './components/Show/Shows';
 import Albums from './components/Albums/Albums';
 import Socials from './components/Socials/Socials';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Shows />
       <Albums />
       <Socials />
+      <Footer />
     </div>
   );
 }

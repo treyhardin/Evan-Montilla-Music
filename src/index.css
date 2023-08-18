@@ -61,6 +61,8 @@
   --icon-md: 24px;
   --icon-lg: 32px;
 
+  --transition-short: .3s ease-out;
+
   /* Typography */
 
   --font-family-display: 'Oi', cursive;

@@ -1,22 +1,11 @@
 import { onMount } from "solid-js";
 import AlienVideo from "../AlienVideo/AlienVideo";
 import FeaturedRelease from "../FeaturedRelease/FeaturedRelease";
-import { getAlbums } from "../Fetch/Fetch";
 import Ticker from "../Ticker/Ticker";
 import styles from "./Hero.module.css"
 
 
 export default function Hero() {
-
-  const albumStuff = async () => {
-    let albums = await getAlbums()
-    console.log(albums)
-  }
-
-  onMount(async () => {
-    albumStuff()
-    // console.log(albums)
-  })
 
   return (
     <section class={styles.hero}>
