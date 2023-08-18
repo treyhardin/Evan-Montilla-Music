@@ -1,0 +1,28 @@
+.socials {
+  background-color: var(--color-tertiary);
+  min-height: 90dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-lg);
+  text-align: center;
+  color: var(--color-primary);
+  position: relative;
+}
+
+.socials::before {
+  content: "";
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  bottom: 15%;
+  left: 15%;
+  background-color: var(--color-secondary);
+  border-radius: 100%;
+  z-index: 0;
+  filter: blur(120px);
+}
+
+.socialInfo {
+  position: relative;
+}
