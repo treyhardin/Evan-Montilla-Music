@@ -1,4 +1,5 @@
 import AlienVideo from "../AlienVideo/AlienVideo";
+import FeaturedRelease from "../FeaturedRelease/FeaturedRelease";
 import Ticker from "../Ticker/Ticker";
 import styles from "./Hero.module.css"
 
@@ -14,6 +15,13 @@ export default function Hero() {
       </div>
       <Ticker text={["Singer/Songwriter/Humanoid", "Queens, NY"]} />
       <AlienVideo />
+      <FeaturedRelease
+        title="Laura's Vacationland Pt. 2"
+        image="https://i1.sndcdn.com/artworks-xct8pT1xWSSE28PT-orz1cA-t240x240.jpg"
+        cta="Play Album"
+        url="www.google.com"
+        badgeText="Out Now"
+      />
     </section>
   )
 }

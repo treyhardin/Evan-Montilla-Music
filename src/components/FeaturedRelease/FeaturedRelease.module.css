@@ -1,0 +1,73 @@
+.featured_release {
+  position: relative;
+  max-width: 40vw;
+  align-self: flex-end;
+  margin-top: var(--space-lg);
+}
+
+.featured_release_card {
+  background-color: var(--color-secondary);
+  border: 2px solid var(--color-primary);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  border-radius: var(--border-md);
+}
+
+.featured_image {
+  max-width: 150px;
+}
+
+.featured_text {
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.cta {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-xs);
+}
+
+.cta > svg {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  color: var(--color-primary);
+}
+
+.badge {
+  color: var(--color-primary);
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+  translate: -50% -50%;
+  rotate: -10deg;
+}
+
+.badge_inner {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badge_inner > svg {
+  width: 150%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  z-index: 0;
+}
+
+.badge_text {
+  position: relative;
+  z-index: 1;
+  color: var(--color-secondary);
+}
+
