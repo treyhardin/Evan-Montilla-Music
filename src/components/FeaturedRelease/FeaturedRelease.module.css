@@ -1,6 +1,7 @@
 .featured_release {
   position: relative;
-  max-width: 40vw;
+  width: 100%;
+  max-width: 500px;
   align-self: flex-end;
   margin-top: var(--space-lg);
 }
@@ -16,7 +17,8 @@
 }
 
 .featured_image {
-  max-width: 150px;
+  /* max-width: 150px; */
+  width: 25%;
 }
 
 .featured_text {
