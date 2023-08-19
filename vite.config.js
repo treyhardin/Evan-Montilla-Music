@@ -11,6 +11,7 @@ export default defineConfig({
     // devtools(),
     solidPlugin(),
   ],
+  assetsInclude: ['**/*.mov'],
   server: {
     port: 3000,
   },
