@@ -32,8 +32,8 @@ export async function getTracks() {
     file,
     "fileURL": file.asset->url,
     album,
-    "albumName": album->title,
-    "albumCover": album->coverImage,
+    "albumTitle": album->title,
+    "albumCover": album->image,
     image,
     releaseDate,
   }`)
@@ -45,12 +45,36 @@ export async function getHeroSettings() {
     tickerLine1,
     tickerLine2,
     featuredContent,
+    bannerTitle,
     "contentType": featuredContent->_type,
     "contentTitle": featuredContent->title,
     "contentImage": featuredContent->image,
     "contentURL": featuredContent->url,
+    "albumTitle": featuredContent->album->title,
+    "albumImage": featuredContent->album->image,
+    "trackFile": featuredContent->file.asset->url,
     bannerText,
     badgeText,
+    showBanner,
   }`)
   return heroSettings
+}
+
+export async function getTracksSectionSettings() {
+  const tracksSectionSettings = await client.fetch(`*[_type == "tracksSettings"]{
+    sectionTitle,
+    image,
+    featuredTracks,
+    "titles": featuredTracks[]->title,
+    "files": featuredTracks[]->file.asset->url,
+    "covers": featuredTracks[]->album->image,
+    "images": featuredTracks[]->image,
+    "albumTitles": featuredTracks[]->album->title,
+  }`)
+  return tracksSectionSettings
+}
+
+export async function getSocialSectionSettings() {
+  const socialSettings = await client.fetch('*[_type == "socialSettings"]')
+  return socialSettings
 }

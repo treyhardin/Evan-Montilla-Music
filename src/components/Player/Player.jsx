@@ -16,12 +16,12 @@ export default function Player() {
   })
 
   return (
-    <div class={styles.player}>
+    <div class={`${isPlaying() ? styles.active : ''} ${styles.player}`}>
 
       <Show when={ currentTrack() && isPlaying() }>
         <div class={styles.playerText}>
           <h6>{ currentTrack().title }</h6>
-          <p>{ currentTrack().albumName }</p>
+          <p>{ currentTrack().albumTitle }</p>
         </div>
         <audio controls ref={player}>
           <source src={ currentTrack().file } type="audio/mpeg" />

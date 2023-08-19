@@ -6,6 +6,7 @@
   width: 100%;
   color: var(--color-ink);
   gap: var(--space-sm);
+  padding-inline: var(--space-sm);
   padding-block: var(--space-sm);
   border-top: none;
   border-left: none;
@@ -40,9 +41,16 @@
 
 .iconWrapper {
   flex: 0 0 var(--icon-lg);
+  height: var(--icon-lg);
   color: var(--color-secondary);
+  border: 1px solid var(--color-secondary);
+  aspect-ratio: 1 / 1;
+  border-radius: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .iconWrapper > svg {
-  width: 100%;
+  width: 60%;
 }

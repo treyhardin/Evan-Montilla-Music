@@ -10,7 +10,14 @@
   align-items: stretch;
   gap: var(--space-xs);
   box-shadow: 2px 2px 24px 1px rgba(0, 0, 0, 0.3);
-  /* box-sizing: content-box; */
+  opacity: 0;
+  translate: 0 50px;
+  transition: all var(--transition-short);
+}
+
+.player.active {
+  opacity: 1;
+  translate: 0 0px;
 }
 
 .playerText {

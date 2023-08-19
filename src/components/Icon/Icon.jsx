@@ -56,10 +56,30 @@ export const IconSoundcloud = () => {
         </clipPath>
       </defs>
     </svg>
-
-
   )
 }
+
+export const IconArrow = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <path stroke="currentColor" d="M15.314 4.314 23 12m0 0-7.686 7.686M23 12H1"/>
+    </svg>
+  )
+}
+
+export const IconPause = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <path stroke="currentColor" stroke-linecap="round" d="M16 3v18M8 3v18"/>
+    </svg>
+  )
+}
+
+
+
+
+
+
 
 
 

@@ -1,39 +1,41 @@
 import { createSignal, onMount } from "solid-js"
-import { getTracks, urlFor } from "../Fetch/Fetch"
+import { getTracks, getTracksSectionSettings, urlFor } from "../Fetch/Fetch"
 import TrackItem from "../TrackItem/TrackItem"
 import styles from "./Tracks.module.css"
 
 export default function Tracks() {
 
-  const [ tracks, setTracks ] = createSignal(null)
+  const [ sectionSettings, setSectionSettings ] = createSignal(null)
+
   onMount(async () => {
-    setTracks(await getTracks())
-    console.log(tracks())
+    const settings = await getTracksSectionSettings()
+    setSectionSettings(settings[0])
   })
 
   return (
     <section class={styles.tracks}>
-      <div class={styles.tracks_image}>
-        <img src="https://cdn.pink.gr/repository/_2017/baddie2.jpg" />
-      </div>
-      <div class={styles.tracks_content}>
-        <div class={styles.sectionTitle}>
-          <h2>Latest Tracks</h2>
+      <Show when={sectionSettings()}>
+        <div class={styles.tracks_image}>
+          <img src={urlFor(sectionSettings().image.asset).width(1440).url()} />
         </div>
-        <div class={styles.tracks_wrapper}>
-          <For each={ tracks() }>{(track, i) =>
-            <TrackItem 
-              title={track.title}
-              album={track.album}
-              albumCover={track.albumCover}
-              albumName={track.albumName}
-              file={track.fileURL}
-              image={track.image}
-              url={track.url}
-            />
-          }</For>
+        <div class={styles.tracks_content}>
+          <div class={styles.sectionTitle}>
+            <h2>{sectionSettings().sectionTitle}</h2>
+          </div>
+          <div class={styles.tracks_wrapper}>
+            <For each={ sectionSettings().featuredTracks }>{(track, i) =>
+              <TrackItem 
+                test={i}
+                title={sectionSettings().titles[i()]}
+                albumCover={sectionSettings().covers[i()]}
+                albumTitle={sectionSettings().albumTitles[i()]}
+                file={sectionSettings().files[i()]}
+                image={sectionSettings().images[i()]}
+              />
+            }</For>
+          </div>
         </div>
-      </div>
+      </Show>
     </section>
   )
 }

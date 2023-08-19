@@ -1,17 +1,51 @@
 import { Show } from "solid-js"
 import { urlFor } from "../Fetch/Fetch"
-import { IconPlay } from "../Icon/Icon"
+import { IconArrow, IconPause, IconPlay } from "../Icon/Icon"
 import styles from "./FeaturedContent.module.css"
+import { setCurrentTrack, setIsPlaying, isPlaying, currentTrack } from "../Player/Player"
 
-
-export default function FeaturedContent({ type, image, title, cta, badgeText, url}) {
+export default function FeaturedContent({ type, image, albumImage, albumTitle, title, file, cta, badgeText, url}) {
 
   // console.log(url)
+
+  const togglePlay = () => {
+
+    if (isPlaying() && currentTrack() && currentTrack().title == title) {
+      return handleStop()
+    }
+    return handlePlay()
+  }
+
+  const handlePlay = () => {
+    setIsPlaying(true)
+    setCurrentTrack({
+      title,
+      albumTitle,
+      file
+    })
+  }
+
+  const handleStop = () => {
+    setIsPlaying(false)
+    setCurrentTrack(null)
+  }
+
+  const handleClick = () => {
+
+    if (url ) {
+      return window.open(url, "_blank");
+    }
+
+    if (file) {
+      togglePlay()
+    }
+    
+  }
 
 
   return (
     <>
-    <a href={url()} class={styles.featuredContent} target="_blank">
+    <button onClick={handleClick} class={styles.featuredContent} target="_blank">
 
       <Show when={ badgeText }>
         <div class={styles.badge}>
@@ -26,33 +60,38 @@ export default function FeaturedContent({ type, image, title, cta, badgeText, ur
 
       <div class={styles.featuredContentCard}>
 
-        <Show when={image() }>
-          <img class={styles.featured_image} src={urlFor(image().asset).width(400).url()} />
+        <Show when={image ||  albumImage}>
+          <img class={styles.featured_image} src={image ? urlFor(image.asset).width(400).url() : urlFor(albumImage.asset).width(400).url()} />
         </Show>
         
         <div class={styles.featured_text}>
-          <h3>{title()}</h3>
+          <h4>{title()}</h4>
           <div class={styles.cta}>
             
-            <Show when={ type() == 'track'}>
-              <IconPlay />
+            <Show when={ type == 'track'}>
+              <Show when={ currentTrack() && currentTrack().title == title}>
+                <IconPause />
+              </Show>
+              <Show when={ !currentTrack() || currentTrack().title !== title}>
+                <IconPlay />
+              </Show>
               <p class="utility">{cta ? cta : 'Listen Now'}</p>
             </Show>
 
-            <Show when={ type() == 'album'}>
-              <IconPlay />
+            <Show when={ type == 'album'}>
               <p class="utility">{cta ? cta : 'Play Album'}</p>
+              <IconArrow />
             </Show>
 
-            <Show when={ type() == 'show'}>
-              <IconPlay />
+            <Show when={ type == 'show'}>
               <p class="utility">{cta ? cta : 'Get the Details'}</p>
+              <IconArrow />
             </Show>
 
           </div>
         </div>
       </div>
-    </a>
+    </button>
     </>
   )
 }

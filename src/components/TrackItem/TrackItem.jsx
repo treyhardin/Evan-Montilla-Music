@@ -1,15 +1,12 @@
 import { Show, createSignal } from "solid-js"
 import { urlFor } from "../Fetch/Fetch"
-import { IconPlay, IconPlayCircle } from "../Icon/Icon"
+import { IconPause, IconPlay, IconPlayCircle } from "../Icon/Icon"
 import styles from "./TrackItem.module.css"
 import { setCurrentTrack, setIsPlaying, isPlaying, currentTrack } from "../Player/Player"
 
-export default function TrackItem({title, albumCover, albumName, image, album, file}) {
-
-
+export default function TrackItem({title, albumCover, albumTitle, image, file}) {
 
   const togglePlay = () => {
-
     if (isPlaying() && currentTrack() && currentTrack().title == title) {
       return handleStop()
     }
@@ -20,19 +17,14 @@ export default function TrackItem({title, albumCover, albumName, image, album, f
     setIsPlaying(true)
     setCurrentTrack({
       title,
-      albumName,
+      albumTitle,
       file
     })
-    // console.log(isPlaying())
-    // console.log(currentTrack())
   }
 
   const handleStop = () => {
     setIsPlaying(false)
     setCurrentTrack(null)
-
-    // console.log(isPlaying())
-    // console.log(currentTrack())
   }
 
   return (
@@ -44,10 +36,20 @@ export default function TrackItem({title, albumCover, albumName, image, album, f
       </Show>
       <div class={styles.textWrapper}>
         <h4>{title}</h4>
-        <Show when={albumName }>
-          <h6>{albumName}</h6>
+        <Show when={albumTitle }>
+          <h6>{albumTitle}</h6>
         </Show>
       </div>
+
+      <div class={styles.iconWrapper}>
+        <Show when={ currentTrack() && currentTrack().title == title}>
+          <IconPause />
+        </Show>
+        <Show when={ !currentTrack() || currentTrack().title !== title}>
+          <IconPlay />
+        </Show>
+      </div>
+
 
       {/* <Show when={currentTrack().title == title}>
         <div class={styles.iconWrapper} onClick={handleStop}>
