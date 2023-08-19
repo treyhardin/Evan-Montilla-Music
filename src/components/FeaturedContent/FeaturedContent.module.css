@@ -1,12 +1,16 @@
-.featured_release {
+.featuredContent {
   position: relative;
   width: 100%;
   max-width: 500px;
   align-self: flex-end;
   margin-top: var(--space-lg);
+  color: inherit;
+  text-decoration: none;
 }
 
-.featured_release_card {
+
+
+.featuredContentCard {
   background-color: var(--color-secondary);
   border: 2px solid var(--color-primary);
   display: flex;
@@ -14,6 +18,12 @@
   align-items: center;
   overflow: hidden;
   border-radius: var(--border-md);
+  transition: all var(--transition-short);
+}
+
+.featuredContent:hover .featuredContentCard {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
 .featured_image {

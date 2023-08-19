@@ -1,6 +1,6 @@
-import { createSignal, onMount } from "solid-js";
+import { Show, createSignal, onMount } from "solid-js";
 import AlienVideo from "../AlienVideo/AlienVideo";
-import FeaturedRelease from "../FeaturedRelease/FeaturedRelease";
+import FeaturedContent from "../FeaturedContent/FeaturedContent";
 import Ticker from "../Ticker/Ticker";
 import styles from "./Hero.module.css"
 import { getHeroSettings } from "../Fetch/Fetch";
@@ -8,16 +8,30 @@ import { getHeroSettings } from "../Fetch/Fetch";
 
 export default function Hero() {
 
-  const [ badgeText, setBadgeText ] = createSignal(null)
   const [ tickerTextLine1, setTickerTextLine1 ] = createSignal(null)
   const [ tickerTextLine2, setTickerTextLine2 ] = createSignal(null)
+
+  const [ featuredContent, setFeaturedContent ] = createSignal(null)
+  const [ featuredContentType, setFeaturedContentType ] = createSignal(null)
+  const [ featuredContentTitle, setFeaturedContentTitle ] = createSignal(null)
+  const [ featuredContentImage, setFeaturedContentImage ] = createSignal(null)
+  const [ featuredContentURL, setFeaturedContentURL ] = createSignal(null)
+
+  const [ badgeText, setBadgeText ] = createSignal(null)
 
   onMount(async () => {
     const settings = await getHeroSettings()
 
-    setBadgeText(settings[0].badgeText)
     setTickerTextLine1(settings[0].tickerLine1)
     setTickerTextLine2(settings[0].tickerLine2)
+
+    setFeaturedContent(settings[0].featuredContent)
+    setFeaturedContentType(settings[0].contentType)
+    setFeaturedContentTitle(settings[0].contentTitle)
+    setFeaturedContentImage(settings[0].contentImage)
+    setFeaturedContentURL(settings[0].contentURL)
+
+    setBadgeText(settings[0].badgeText)
 
     console.log(settings)
   })
@@ -34,13 +48,23 @@ export default function Hero() {
 
       <AlienVideo />
 
-      <FeaturedRelease
-        title="Laura's Vacationland Pt. 2"
-        image="https://i1.sndcdn.com/artworks-xct8pT1xWSSE28PT-orz1cA-t240x240.jpg"
-        cta="Play Album"
-        url="www.google.com"
-        badgeText={badgeText}
-      />
+      {/* <Show when={
+        featuredContentType() &&
+        featuredContentTitle() &&
+        featuredContentImage() &&
+        featuredContentURL()
+      }> */}
+
+        <FeaturedContent
+          type={ featuredContentType }
+          title={ featuredContentTitle }
+          image={ featuredContentImage }
+          // cta="Play Album"
+          url={ featuredContentURL }
+          badgeText={badgeText}
+        />
+
+      {/* </Show> */}
     </section>
   )
 }

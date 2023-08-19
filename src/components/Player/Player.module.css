@@ -1,0 +1,23 @@
+.player {
+  position: fixed;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  background-color: var(--color-primary);
+  color: var(--color-ink);
+  border-radius: var(--border-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-xs);
+  box-shadow: 2px 2px 24px 1px rgba(0, 0, 0, 0.3);
+  /* box-sizing: content-box; */
+}
+
+.playerText {
+  margin: var(--space-xs) var(--space-xs) 0;
+}
+
+.player > audio {
+  margin: 0 var(--space-xs) var(--space-xs);
+  /* width: 100%; */
+}

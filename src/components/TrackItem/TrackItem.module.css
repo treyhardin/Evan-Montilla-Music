@@ -1,4 +1,4 @@
-.track_item {
+.trackItem {
   display: flex;
   flex-direction: row;
   justify-content: stretch;
@@ -7,7 +7,17 @@
   color: var(--color-ink);
   gap: var(--space-sm);
   padding-block: var(--space-sm);
+  border-top: none;
+  border-left: none;
+  border-right: none;
   border-bottom: 1px solid var(--color-primary);
+  background-color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trackItem:hover {
+  background-color: var(--color-primary);
 }
 
 .track_image {

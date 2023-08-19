@@ -1,12 +1,42 @@
-import { Show } from "solid-js"
+import { Show, createSignal } from "solid-js"
 import { urlFor } from "../Fetch/Fetch"
-import { IconPlayCircle } from "../Icon/Icon"
+import { IconPlay, IconPlayCircle } from "../Icon/Icon"
 import styles from "./TrackItem.module.css"
+import { setCurrentTrack, setIsPlaying, isPlaying, currentTrack } from "../Player/Player"
 
 export default function TrackItem({title, albumCover, albumName, image, album, file}) {
 
+
+
+  const togglePlay = () => {
+
+    if (isPlaying() && currentTrack() && currentTrack().title == title) {
+      return handleStop()
+    }
+    return handlePlay()
+  }
+
+  const handlePlay = () => {
+    setIsPlaying(true)
+    setCurrentTrack({
+      title,
+      albumName,
+      file
+    })
+    // console.log(isPlaying())
+    // console.log(currentTrack())
+  }
+
+  const handleStop = () => {
+    setIsPlaying(false)
+    setCurrentTrack(null)
+
+    // console.log(isPlaying())
+    // console.log(currentTrack())
+  }
+
   return (
-    <section class={styles.track_item}>
+    <button class={styles.trackItem} onClick={togglePlay}>
       <Show when={albumCover || image }>
         <div class={styles.track_image}>
           <img src={image ? urlFor(image.asset).url() : urlFor(albumCover.asset).url()} />
@@ -18,13 +48,23 @@ export default function TrackItem({title, albumCover, albumName, image, album, f
           <h6>{albumName}</h6>
         </Show>
       </div>
-      <div class={styles.iconWrapper}>
-        <IconPlayCircle />
-      </div>
-      <audio controls autoplay>
+
+      {/* <Show when={currentTrack().title == title}>
+        <div class={styles.iconWrapper} onClick={handleStop}>
+          <IconPlayCircle />
+        </div>
+      </Show> */}
+
+      {/* <Show when={!currentTrack().title == title}>
+        <div class={styles.iconWrapper} onClick={handlePlay}>
+          <IconPlay />
+        </div>
+      </Show> */}
+
+      {/* <audio controls autoplay>
         <source src={file} type="audio/mpeg" />
         Your browser does not support the audio element.
-      </audio>
-    </section>
+      </audio> */}
+    </button>
   )
 }

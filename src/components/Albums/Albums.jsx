@@ -20,7 +20,7 @@ export default function Albums() {
         <For each={ albums() }>{(album, i) =>
           <AlbumItem
             title={album.title}
-            image={urlFor(album.coverImage.asset).width(600).height(600).url()}
+            image={urlFor(album.image.asset).width(600).height(600).url()}
             date={album.releaseDate}
             url={album.url}
           />

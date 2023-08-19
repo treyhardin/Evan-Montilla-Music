@@ -41,6 +41,16 @@ export async function getTracks() {
 }
 
 export async function getHeroSettings() {
-  const heroSettings = await client.fetch('*[_type == "heroSettings"]')
+  const heroSettings = await client.fetch(`*[_type == "heroSettings"]{
+    tickerLine1,
+    tickerLine2,
+    featuredContent,
+    "contentType": featuredContent->_type,
+    "contentTitle": featuredContent->title,
+    "contentImage": featuredContent->image,
+    "contentURL": featuredContent->url,
+    bannerText,
+    badgeText,
+  }`)
   return heroSettings
 }
