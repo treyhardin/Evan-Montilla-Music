@@ -1,7 +1,7 @@
 import { IconPin, IconTime } from "../Icon/Icon"
 import styles from "./ShowItem.module.css"
 
-export default function ShowItem({image, title, location, time, link}) {
+export default function ShowItem({image, title, location, time, url}) {
 
   return (
     <div class={styles.showItem}>
@@ -9,7 +9,9 @@ export default function ShowItem({image, title, location, time, link}) {
         <img src={image} />
       </div>
       <div class={styles.showText}>
-        <h2>{title}</h2>
+        <a href={url} class={styles.showLink} target="_blank">
+          <h2>{title}</h2>
+        </a>
         <div class={styles.showInfo}>
           <div class={styles.showInfoItem}>
             <IconPin />

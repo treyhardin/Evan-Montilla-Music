@@ -23,6 +23,16 @@
   gap: var(--space-sm);
 }
 
+.showLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-short);
+}
+
+.showLink:hover {
+  color: var(--color-primary);
+}
+
 .showInfo {
   display: flex;
   flex-direction: column;

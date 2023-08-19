@@ -23,11 +23,13 @@ export default function Tracks() {
         <div class={styles.tracks_wrapper}>
           <For each={ tracks() }>{(track, i) =>
             <TrackItem 
-              image={urlFor(track.coverImage.asset).width(400).url()}
               title={track.title}
               album={track.album}
+              albumCover={track.albumCover}
+              albumName={track.albumName}
+              file={track.fileURL}
+              image={track.image}
               url={track.url}
-              file={track.file}
             />
           }</For>
         </div>

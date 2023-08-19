@@ -27,6 +27,20 @@ export async function getShows() {
 }
 
 export async function getTracks() {
-  const tracks = await client.fetch('*[_type == "track"]')
+  const tracks = await client.fetch(`*[_type == "track"]{
+    title,
+    file,
+    "fileURL": file.asset->url,
+    album,
+    "albumName": album->title,
+    "albumCover": album->coverImage,
+    image,
+    releaseDate,
+  }`)
   return tracks
+}
+
+export async function getHeroSettings() {
+  const heroSettings = await client.fetch('*[_type == "heroSettings"]')
+  return heroSettings
 }

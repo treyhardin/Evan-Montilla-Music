@@ -9,8 +9,8 @@ export default function Socials() {
       <div class={styles.socialInfo}>
         <h2>Unlike anyone else this side of the Mississippi</h2>
         <div class={styles.buttonWrapper}>
-          <Button icon="soundcloud" text="Soundcloud" />
-          <Button icon="instagram" text="Instagram" />
+          <Button icon="soundcloud" text="Soundcloud" url="https://soundcloud.com/evanmontilla" newTab />
+          <Button icon="instagram" text="Instagram" url="https://www.instagram.com/evan_montilla_music/" newTab />
         </div>
       </div>
     </div>

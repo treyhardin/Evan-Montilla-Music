@@ -23,7 +23,7 @@ export default function Shows() {
           title={show.title}
           location={show.location}
           time={show.time}
-          link={show.url}
+          url={show.url}
         />
         }</For>
     </div>
