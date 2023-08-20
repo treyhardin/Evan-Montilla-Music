@@ -11,6 +11,9 @@ dependencies:
   '@sanity/image-url':
     specifier: ^1.0.2
     version: 1.0.2
+  '@studio-freight/lenis':
+    specifier: ^1.0.19
+    version: 1.0.19
   solid-js:
     specifier: ^1.7.6
     version: 1.7.6
@@ -807,6 +810,10 @@ packages:
     dependencies:
       solid-js: 1.7.6
     dev: true
+
+  /@studio-freight/lenis@1.0.19:
+    resolution: {integrity: sha512-0DZdjDaJqhYVxzcbj6Dpv/BHS/RLc4f6XYu/n0t0fUKatuvO5vtXW4gW4GHgJPiPIpamct7bg8hpihbjZ6fqpw==}
+    dev: false
 
   /@types/babel__core@7.20.1:
     resolution: {integrity: sha512-aACu/U/omhdk15O4Nfb+fHgH/z3QsfQzpnvRZhYhThms83ZnAOZz7zZAWO7mn2yyNQaA4xTO8GLK3uqFU4bYYw==}

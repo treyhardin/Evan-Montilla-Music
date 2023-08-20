@@ -1,4 +1,4 @@
-import { Suspense, onMount } from "solid-js"
+import { Show, Suspense, onMount, useTransition } from "solid-js"
 import styles from './App.module.css';
 import Hero from './components/Hero/Hero';
 import Tracks from './components/Tracks/Tracks';
@@ -35,11 +35,12 @@ function App() {
     lenisSetup()
   })
 
-  
-
+  const [pending, start] = useTransition();
 
   return (
     <main class={styles.App} ref={lenisWrapper}>
+      <Show when={pending()}><p>LOADDD</p></Show>
+      <Show when={start()}><p>STARTEEDDD</p></Show>
       <div ref={lenisContent}>
         <Suspense fallback={<Preloader />}>
           <Hero />
