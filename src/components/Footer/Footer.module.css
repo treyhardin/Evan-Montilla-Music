@@ -5,6 +5,8 @@
   padding: var(--space-lg);
   background-color: var(--color-tertiary);
   color: var(--color-reverse);
+  flex-wrap: wrap;
+  gap: var(--space-xs);
 }
 
 .footer a {
