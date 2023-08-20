@@ -39,8 +39,8 @@ function App() {
 
   return (
     <main class={styles.App} ref={lenisWrapper}>
-      <Show when={pending()}><p>LOADDD</p></Show>
-      <Show when={start()}><p>STARTEEDDD</p></Show>
+      {/* <Show when={pending()}><p>LOADDD</p></Show> */}
+      {/* <Show when={start()}><p>STARTEEDDD</p></Show> */}
       <div ref={lenisContent}>
         <Suspense fallback={<Preloader />}>
           <Hero />
