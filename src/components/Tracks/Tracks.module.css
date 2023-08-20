@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: row;
   justify-content: stretch;
-  min-height: 90dvh;
+  min-height: 90svh;
   color: var(--color-primary);
 }
 

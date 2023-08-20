@@ -61,7 +61,8 @@
   --icon-md: 24px;
   --icon-lg: 32px;
 
-  --transition-short: .3s ease-out;
+  --transition-short: .3s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-long: 1s cubic-bezier(0.25, 1, 0.5, 1);
 
   /* Typography */
 

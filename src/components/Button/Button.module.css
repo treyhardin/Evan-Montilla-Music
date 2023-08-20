@@ -11,6 +11,7 @@
   padding: var(--space-xs) var(--space-md);
   cursor: pointer;
   transition: background-color var(--transition-short);
+  text-decoration: none;
 }
 
 .button:hover {

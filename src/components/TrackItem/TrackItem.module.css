@@ -15,6 +15,7 @@
   background-color: inherit;
   text-align: left;
   cursor: pointer;
+  transition: background-color var(--transition-short);
 }
 
 .trackItem:hover {
@@ -49,8 +50,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color var(--transition-short);
+}
+
+.trackItem:hover .iconWrapper,
+.iconActive {
+  background-color: var(--color-secondary);
 }
 
 .iconWrapper > svg {
   width: 60%;
+}
+
+.trackItem:hover .iconWrapper > svg,
+.iconActive > svg {
+  color: var(--color-primary);
 }

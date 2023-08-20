@@ -4,7 +4,7 @@
   align-items: stretch;
   text-align: center;
   gap: var(--space-sm);
-  flex: 1 0 30%;
+  flex: 0 0 40%;
 }
 
 .albumText {
@@ -19,9 +19,22 @@
   color: var(--color-reverse);
 }
 
-.albumImage {
+.albumImageWrapper {
   border: 2px solid var(--color-primary);
   border-radius: var(--border-sm);
+  overflow: hidden;
   width: 100%;
-  /* width: 40%; */
 }
+
+.albumImage {
+  width: 100%;
+  scale: 1.0;
+  filter: grayscale(0.0);
+  transition: scale var(--transition-long), filter var(--transition-long);
+}
+
+.albumImageWrapper:hover .albumImage {
+  scale: 1.1;
+  filter: grayscale(1.0);
+}
+

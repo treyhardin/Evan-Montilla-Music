@@ -11,9 +11,8 @@
   border: none;
   outline: none;
   text-align: left;
+  cursor: pointer;
 }
-
-
 
 .featuredContentCard {
   background-color: var(--color-secondary);
@@ -27,12 +26,12 @@
 }
 
 .featuredContent:hover .featuredContentCard {
-  background-color: var(--color-primary);
+  background-color: var(--color-reverse);
+  border-color: var(--color-secondary);
   color: var(--color-secondary);
 }
 
 .featured_image {
-  /* max-width: 150px; */
   width: 25%;
 }
 
@@ -48,6 +47,7 @@
   flex-direction: row;
   gap: var(--space-xs);
 }
+
 
 .cta > svg {
   width: var(--icon-sm);
@@ -77,6 +77,16 @@
   align-items: center;
 }
 
+@keyframes badgeSpin {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+
 .badge_inner > svg {
   width: 150%;
   position: absolute;
@@ -84,6 +94,7 @@
   top: 50%;
   translate: -50% -50%;
   z-index: 0;
+  animation: badgeSpin 40s linear;
 }
 
 .badge_text {

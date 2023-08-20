@@ -1,5 +1,5 @@
 .hero {
-  min-height: 90dvh;
+  min-height: 90svh;
   background-color: var(--color-tertiary);
   position: relative;
   padding: var(--space-lg);

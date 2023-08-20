@@ -4,7 +4,7 @@ export default function AlbumItem({ title, image, date, url }) {
 
   return (
     <div class={styles.albumItem}>
-      <a href={url} target="_blank">
+      <a href={url} target="_blank" class={styles.albumImageWrapper}>
         <img class={styles.albumImage} src={image} />
       </a>
       <div class={styles.albumText}>

@@ -41,14 +41,17 @@ export default function TrackItem({title, albumCover, albumTitle, image, file}) 
         </Show>
       </div>
 
-      <div class={styles.iconWrapper}>
+      
         <Show when={ currentTrack() && currentTrack().title == title}>
-          <IconPause />
+          <div class={`${styles.iconWrapper} ${styles.iconActive}`}>
+            <IconPause />
+          </div>
         </Show>
         <Show when={ !currentTrack() || currentTrack().title !== title}>
-          <IconPlay />
+          <div class={styles.iconWrapper}>
+            <IconPlay />
+          </div>
         </Show>
-      </div>
 
 
       {/* <Show when={currentTrack().title == title}>
