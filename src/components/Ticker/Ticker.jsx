@@ -18,12 +18,12 @@ export default function Ticker({ text }) {
 
     const animate = () => {
 
-      if (offset <= scrollDistance) {
+      if (offset >= -scrollDistance) {
         offset -= scrollSpeed
         ticker.style.translate = `${offset}px 0`
       } else {
         offset = 0
-        ticker.style.translate = `${offset}px 0`
+        ticker.style.translate = `px 0`
       }
       requestAnimationFrame(animate)
     }
