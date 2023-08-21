@@ -20,6 +20,7 @@
 }
 
 .albumImageWrapper {
+  aspect-ratio: 1 / 1;
   border: 2px solid var(--color-primary);
   border-radius: var(--border-sm);
   overflow: hidden;

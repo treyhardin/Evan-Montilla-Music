@@ -1,6 +1,6 @@
 import { Show, createSignal } from "solid-js"
 import { urlFor } from "../Fetch/Fetch"
-import { IconPause, IconPlay, IconPlayCircle } from "../Icon/Icon"
+import { IconPause, IconPlay } from "../Icon/Icon"
 import styles from "./TrackItem.module.css"
 import { setCurrentTrack, setIsPlaying, isPlaying, currentTrack } from "../Player/Player"
 
@@ -31,7 +31,7 @@ export default function TrackItem({title, albumCover, albumTitle, image, file}) 
     <button class={styles.trackItem} onClick={togglePlay}>
       <Show when={albumCover || image }>
         <div class={styles.track_image}>
-          <img src={image ? urlFor(image.asset).url() : urlFor(albumCover.asset).url()} />
+          <img src={image ? urlFor(image.asset).width(400).url() : urlFor(albumCover.asset).width(400).url()} />
         </div>
       </Show>
       <div class={styles.textWrapper}>
@@ -52,24 +52,6 @@ export default function TrackItem({title, albumCover, albumTitle, image, file}) 
             <IconPlay />
           </div>
         </Show>
-
-
-      {/* <Show when={currentTrack().title == title}>
-        <div class={styles.iconWrapper} onClick={handleStop}>
-          <IconPlayCircle />
-        </div>
-      </Show> */}
-
-      {/* <Show when={!currentTrack().title == title}>
-        <div class={styles.iconWrapper} onClick={handlePlay}>
-          <IconPlay />
-        </div>
-      </Show> */}
-
-      {/* <audio controls autoplay>
-        <source src={file} type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio> */}
     </button>
   )
 }

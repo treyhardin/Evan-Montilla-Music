@@ -19,7 +19,7 @@ export default function Shows() {
 
       <For each={ shows() }>{(show, i) =>
         <ShowItem 
-          image={urlFor(show.image.asset).width(400).url()}
+          image={urlFor(show.image.asset).width(600).url()}
           title={show.title}
           location={show.location}
           time={show.time}

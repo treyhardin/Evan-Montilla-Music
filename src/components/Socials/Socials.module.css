@@ -35,4 +35,5 @@
   flex-direction: row;
   gap: var(--space-xs);
   justify-content: center;
+  color: var(--color-primary);
 }

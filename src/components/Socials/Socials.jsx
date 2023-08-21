@@ -10,7 +10,6 @@ export default function Socials() {
   onMount(async () => {
     const settings = await getSocialSectionSettings()
     setSectionSettings(settings[0])
-    console.log(sectionSettings())
   })
 
   return (

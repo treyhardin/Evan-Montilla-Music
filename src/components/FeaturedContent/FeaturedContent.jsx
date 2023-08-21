@@ -61,7 +61,7 @@ export default function FeaturedContent({ type, image, albumImage, albumTitle, t
       <div class={styles.featuredContentCard}>
 
         <Show when={image ||  albumImage}>
-          <img class={styles.featured_image} src={image ? urlFor(image.asset).width(400).url() : urlFor(albumImage.asset).width(400).url()} />
+          <img class={styles.featured_image} src={image ? urlFor(image.asset).width(200).url() : urlFor(albumImage.asset).width(400).url()} />
         </Show>
         
         <div class={styles.featured_text}>

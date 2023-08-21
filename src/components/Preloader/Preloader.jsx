@@ -5,7 +5,7 @@ export default function Preloader() {
 
   return (
     <div class={styles.preloader}>
-      <p>Oreloader</p>
+      <h3>Evan Montilla Music &#169;</h3>
     </div>
   )
 }

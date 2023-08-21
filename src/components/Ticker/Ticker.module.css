@@ -14,10 +14,11 @@
 }
 
 .tickerTrack {
-  animation: tickerText 30s linear infinite;
+  /* animation: tickerText 30s linear infinite; */
   display: flex;
   flex-direction: row;
   gap: var(--space-sm);
+  will-change: translate;
 }
 
 .tickerItem {

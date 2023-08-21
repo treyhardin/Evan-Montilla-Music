@@ -6,8 +6,7 @@
   width: 100%;
   color: var(--color-ink);
   gap: var(--space-sm);
-  padding-inline: var(--space-sm);
-  padding-block: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg) var(--space-sm) var(--space-sm);
   border-top: none;
   border-left: none;
   border-right: none;
